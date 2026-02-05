@@ -1,0 +1,62 @@
+.sidebar {
+  background-color: rgb(197, 199, 202);
+  height: calc(100vh - 7rem);
+  padding-top: 0.1px;
+  padding-left: 1rem;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  transition: width 0.2s ease;
+}
+
+.sidebar.close {
+  width: 3rem;
+}
+
+.sidebar-top button{
+  font-size: 1.25rem;
+  margin-top: 3rem;
+  display: flex;
+  gap: 10px;
+}
+
+.sidebar-top button:hover {
+  font-size: 1.3rem;
+}
+
+.sidebar-middle {
+  margin-bottom: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-middle button {
+  font-size: 1rem;
+}
+
+.sidebar-middle button:hover {
+  font-size: 1.1rem;
+}
+
+.sidebar-bottom button {
+  font-size: 1.1rem;
+}
+
+
+.sidebar-bottom {
+  margin-bottom: 5rem;
+}
+
+.sidebar-bottom button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sidebar-bottom button:hover {
+  color: red;
+}
+
+

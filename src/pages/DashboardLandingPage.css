@@ -1,0 +1,16 @@
+.dashboard-landing-page-addproduct {
+  width: 100%;
+}
+
+.dash-land-add-link {
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+
+.dash-land-add-link:hover {
+  color: blue;
+}

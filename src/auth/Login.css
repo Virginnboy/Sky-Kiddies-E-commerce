@@ -1,0 +1,50 @@
+.form-container form{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+  padding: 0px 40px;
+}
+
+.form-container {
+  height: 80vh;
+  display: flex;
+}
+
+.login-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-btn button {
+  padding: 5px 20px;
+  font-size: 18px;
+}
+
+.login-btn button:hover {
+  background-color: rgb(97, 95, 95);
+  color: white;
+}
+
+.signup-here {
+  color: blue;
+}
+
+.forgot-password {
+  color: blue;
+  
+}
+
+.success-reset-password {
+  color: green;
+  text-align: center;
+}
+
+.success-signup {
+  color: green;
+  text-align: center;
+}

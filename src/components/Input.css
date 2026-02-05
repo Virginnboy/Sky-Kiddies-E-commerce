@@ -1,0 +1,14 @@
+.custom-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-input input {
+  height: 25px;
+  font-size: 17px;
+  width: 100%;
+}
+
+.custom-input label {
+  font-size: 25px;
+}

@@ -1,0 +1,18 @@
+.signup-container {
+  height: 80vh;
+  display: flex;
+}
+
+.signup-form {
+  padding: 10px;
+  margin: auto;
+  width: 70%;
+}
+
+.login-here {
+  color: rgb(26, 26, 210);
+}
+
+.login-here:hover {
+  color: rgb(46, 46, 236);
+}

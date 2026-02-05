@@ -1,0 +1,24 @@
+.product-list-container ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* grid-template-columns: repeat(3, 1fr); */
+  gap: 10px;
+}
+
+.product-list-container li {
+  padding: 20px;
+  background: #f5f5f5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.product-list-img {
+  height: 25vh;
+  object-fit: cover;
+}
+
+.product-list-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

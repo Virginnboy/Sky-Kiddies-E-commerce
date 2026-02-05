@@ -1,0 +1,36 @@
+.nav-bar{
+  display: flex;
+  align-items: center;
+  background-color: rgb(197, 199, 202);
+  justify-content: space-between;
+  padding: 15px 30px;
+  /* flex-shrink: 0; */
+}
+
+.nav-bar ul{
+  display: flex;
+  gap: 10px;
+}
+
+#navbar-home:hover {
+  color: blue;
+}
+
+#navbar-profile:hover {
+  color: blue;
+}
+
+li{
+  list-style: none;
+}
+
+button{
+  border: none;
+  background-color: rgb(197, 199, 202);
+  border-radius: 5px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}

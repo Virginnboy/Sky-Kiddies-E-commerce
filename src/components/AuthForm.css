@@ -1,0 +1,18 @@
+
+
+.signup-btn {
+  display: flex;
+  justify-content: end;
+  margin: 10px 0px;
+}
+
+.signup-btn button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.signup-btn button:hover {
+  background-color: rgb(97, 95, 95);
+  color: white;
+}

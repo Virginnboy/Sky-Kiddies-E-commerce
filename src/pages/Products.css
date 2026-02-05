@@ -1,0 +1,25 @@
+.products-container {
+width: 100%;
+/* border: 2px solid green; */
+display: flex;
+flex-direction: column;
+overflow-y: auto;
+height: 84.5vh;
+}
+
+.add-product-btn {
+  display: flex;
+  justify-content: end;
+  margin: 20px;
+}
+
+.add-product-btn button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: fixed;
+}
+
+.loading {
+  display: flex;
+  margin: auto;
+}
