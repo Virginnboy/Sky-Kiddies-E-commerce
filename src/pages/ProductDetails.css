@@ -74,3 +74,38 @@
   height: 43vh;
 }
 }
+
+.modal {
+  height: 150px;
+  border: none;
+  box-shadow: 1px 1px 10px 0px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.confirm-btn-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px ;
+}
+
+.cancel-delete {
+  background-color: white;
+  font-size: 17px;
+}
+
+.cancel-delete:hover {
+  color: red;
+}
+
+.confirm-delete {
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
+.confirm-delete:hover {
+  color: white;
+  background-color: rgb(41, 40, 40);
+}

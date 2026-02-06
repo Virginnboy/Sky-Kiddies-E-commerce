@@ -24,3 +24,4 @@ export const uploadProductMutation = async (formData) => {
     throw err
   }
 };
+

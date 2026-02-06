@@ -21,7 +21,7 @@ export default function Header() {
       <h1>Sky Kiddies</h1>
 
       <ul>
-        <li><Link to="/admin-dashboard" id="navbar-home">Home</Link></li>  
+        <li><Link to={user ? "/admin-dashboard" : "/"} id="navbar-home">Home</Link></li>  
         |
         {user? (
         <li><Link>Hello {user.firstName}</Link></li> 

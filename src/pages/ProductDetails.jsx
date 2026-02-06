@@ -1,12 +1,18 @@
 import api from "../axios";
 import { useLoaderData, useNavigation, useNavigate, useSubmit, redirect } from "react-router-dom";
 import "../pages/ProductDetails.css";
+import Modal from "../components/Modal";
+import { useContext } from "react";
+import UserProgressContext from "../store/ProgressContext";
+import { formattedCurrency } from "../formattedPrice.js";
 
 const ProductDetails = () => {
   const submit = useSubmit();
   const navigate = useNavigate();
   const navigation = useNavigation();
   const product = useLoaderData();
+
+  const {deleteProgress, showModal, hideModal} = useContext(UserProgressContext)
 
   const isLoading = navigation.state === "loading";
   const isDeleting = navigation.state === "submitting"
@@ -19,50 +25,54 @@ const ProductDetails = () => {
     )
   };
 
-  const formattedPrice = new Intl.NumberFormat("en-NG", {
-    style: "currency",
-    currency: "NGN"
-  }).format(product.price);
 
-  const handleDeleteEvent = () => {
-    const proceed = window.confirm("Are you sure you want to delete this product!?")
+  const handleShowModal = () => {
+    showModal()
+  }
 
-    if(!proceed) {
-      return;
-    }
-
-    if (proceed) {
-      submit(null, {method: "DELETE"})
-    }
+  const handleConfirmDelete = () => {
+    hideModal();
+    submit(null, {method: "DELETE"});
   }
 
 
   return (
-    <div className="product-details-container">
-      <h1>Product Details</h1>
-      <div className="product-details-items">
-        <div id="product-details-img-container">
-          <img src={product.images} alt={product.title} />
-        </div>
+    <>
+      {deleteProgress === true && <Modal open className="modal">
+        <h3>Are you sure you want to delete this product?</h3>
 
-        <div id="product-des-title-container">
-          <h2 id="product-title">{product.title}</h2>
-          <div  id="product-description">
-          <p>{product.description}</p>
+        <div className="confirm-btn-container">
+          <button onClick={hideModal} className="cancel-delete">Cancel</button>
+          <button onClick={handleConfirmDelete} className="confirm-delete">Yes, Delete</button>
+        </div>
+      </Modal>}
+
+      <div className="product-details-container">
+        <h1>Product Details</h1>
+        <div className="product-details-items">
+          <div id="product-details-img-container">
+            <img src={product.images} alt={product.title} />
+          </div>
+
+          <div id="product-des-title-container">
+            <h2 id="product-title">{product.title}</h2>
+            <div  id="product-description">
+            <p>{product.description}</p>
+            </div>
+          </div>
+
+          <div id="price-quantity">
+            <span>{formattedCurrency.format(product.price)}</span> |
+            <span style={{marginLeft: "10px", }}>Quantity: {product.quantity}</span>
+          </div>
+
+          <div id="edit-delete-btn">
+            <button onClick={()=> navigate(`/admin-dashboard/edit-product/${product._id}`)} id="product-details-editBtn">Edit</button>
+            <button id="product-details-deleteBtn" onClick={handleShowModal} disabled={isDeleting}>{isDeleting ? "Deleting..." : "Delete"}</button>
           </div>
         </div>
-
-        <div id="price-quantity">
-          <span>{formattedPrice}</span> |
-          <span style={{marginLeft: "10px", }}>Quantity: {product.quantity}</span>
-        </div>
-
-        <div id="edit-delete-btn">
-          <button onClick={()=> navigate(`/admin-dashboard/edit-product/${product._id}`)} id="product-details-editBtn">Edit</button>
-          <button id="product-details-deleteBtn" onClick={handleDeleteEvent} disabled={isDeleting}>{isDeleting ? "Deleting..." : "Delete"}</button>
-        </div>
       </div>
-    </div>
+    </>
   )
 }
 
