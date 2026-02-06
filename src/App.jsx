@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         <ProtectedRoute>
           <AdminDashboardLayout/>
         </ProtectedRoute>), children: [
-          {index: true, element: <DashboardLandingPage/>},
+          {index: true, element: <Products/>, loader: productsLoader},
           {path: "products", element: <Products/>, loader: productsLoader},
           {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
           {path: "add-product", element: <AddProducts/>},

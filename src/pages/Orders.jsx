@@ -2,7 +2,7 @@ import React from 'react'
 
 const Orders = () => {
   return (
-    <div>Orders</div>
+    <div style={{width: "100%", textAlign: "center", margin: "auto"}}>Customers oders</div>
   )
 }
 
