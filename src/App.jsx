@@ -3,62 +3,67 @@ import { checkAuth } from "./auth";
 import { useQuery } from "@tanstack/react-query";
 import Login from "./auth/Login";
 import RootLayout from "./components/RootLayout";
-import HomePage from "./components/Home";
 import Signup, { action as signUpAction } from "./auth/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import ErrorPage from "./components/ErrorPage";
 import Products, {loader as productsLoader }  from "./pages/Products";
 import AdminDashboardLayout from "./components/AdminDashboardLayout";
-import DashboardLandingPage from "./pages/DashboardLandingPage";
 import Orders from "./pages/Orders";
 import AddProducts from "./pages/AddProducts";
 import ProductDetails, { loader as productDetailsLoader, action as deleteProductAction} from "./pages/ProductDetails";
 import EditProduct, {loader as editingProduct} from "./pages/EditProduct";
-import FallbackText from "./components/FallbackPage";
 import ResetPassword, {action as resetPasswordAction } from "./components/ResetPassword";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import BankAccount from "./components/BankAccount";
+import Spinner from "./components/Spinner";
+import { Toaster } from "react-hot-toast";
+import AuthRedirect from "./auth/AuthRedirect";
+import AddBankDetails from "./components/AddBankDetails";
+import EditBankDetails, {loader as editBankLoader} from "./components/EditBankDetails";
 
 
-const router = createBrowserRouter([
+  const router = createBrowserRouter([
   { path:"/", 
     element:<RootLayout/>, 
-    hydrateFallbackElement: <FallbackText/>,
+    hydrateFallbackElement: <Spinner/>,
     errorElement: <ErrorPage/>, 
     children:[
-      {index: true, element: <HomePage/>}, 
+      {index: true, element: <AuthRedirect/>}, 
       {path: "signup", element: <Signup/>, action: signUpAction},
       {path: "login", element: <Login/>},
       {path: "forgot-password", element: <ForgotPassword/>},
       {path: "reset-password/:resetPasswordToken", element: <ResetPassword/>, action: resetPasswordAction},
-      {path: "admin-dashboard", element: (
-        <ProtectedRoute>
-          <AdminDashboardLayout/>
-        </ProtectedRoute>), children: [
+      {path: "admin-dashboard", element: <ProtectedRoute>
+        <AdminDashboardLayout/>
+      </ProtectedRoute>, children: [
           {index: true, element: <Products/>, loader: productsLoader},
           {path: "products", element: <Products/>, loader: productsLoader},
           {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
           {path: "add-product", element: <AddProducts/>},
           {path: "edit-product/:productId", element: <EditProduct/>, loader: editingProduct},
-          {path: "orders", element: <Orders/>}
+          {path: "orders", element: <Orders/>},
+          {path: "bank-account", element: <BankAccount/>},
+          {path: "add/bank-account", element: <AddBankDetails/>},
+          {path: "edit/bank-details/:accountId", element: <EditBankDetails/>, loader:editBankLoader}
         ]}
   ] },
 
 ])
 
-
 function App() {
 
-    useQuery({
+  useQuery({
     queryKey: ["auth"],
     queryFn: checkAuth,
-    retry: true,
-    staleTime: 5 * 60 * 1000
   });
 
+
+
   return (
-    <RouterProvider
-      router={router}
-    />
+    <>
+      <Toaster position="top-right" reverseOrder={false}/>
+      <RouterProvider router={router}/>
+    </>
   );
 };
 

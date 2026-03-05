@@ -6,7 +6,7 @@
   justify-content: space-between;
   display: flex;
   flex-direction: column;
-  width: 10rem;
+  width: 11rem;
   transition: width 0.2s ease;
 }
 
@@ -17,6 +17,7 @@
 .sidebar-top button{
   font-size: 1.25rem;
   margin-top: 3rem;
+  margin-bottom: 3rem;
   display: flex;
   gap: 10px;
 }
@@ -37,7 +38,8 @@
 }
 
 .sidebar-middle button:hover {
-  font-size: 1.1rem;
+  color: rgb(54, 53, 53);
+  background-color: rgb(251, 250, 250);
 }
 
 .sidebar-bottom button {

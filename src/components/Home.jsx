@@ -1,7 +1,11 @@
+import HomePageCarousel from "./HomePageCarousel";
+import Anim from "./Anim";
+
 export default function HomePage() {
   return (
     <div>
-      HOME PAGE
+      <Anim/>
+      <HomePageCarousel/>
     </div>
   )
 }

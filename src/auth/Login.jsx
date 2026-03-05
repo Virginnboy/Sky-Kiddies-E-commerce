@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Input from "../components/Input";
 import "../auth/Login.css";
 import { loginMutation } from "../auth";
+import toast from "react-hot-toast";
 
 const Login =()=>{
   const [ showSignupMsg, setShowSignupMsg ] = useState(false)
@@ -18,16 +19,22 @@ const Login =()=>{
   const navigate = useNavigate();
 
 
-  const url = "http://localhost:5000/admin/login"
-
-  const {mutate, isPending, isSuccess, isError, error, data} = useMutation({
+  const {mutate, isPending} = useMutation({
     mutationFn: loginMutation,
 
-    onSuccess: () => {
-      queryClient.invalidateQueries(["auth"]);
+    onSuccess: (data) => {
+      queryClient.setQueryData(["auth"], {
+        authenticated: true,
+        user: data?.user
+      });
 
       navigate("/admin-dashboard");
+      toast.success(data?.message);
     },
+    onError: (err) => {
+      console.log(err)
+      toast.error(err.response?.data?.message || "Login Failed");
+    }
   });
 
   const handleLogin = (e)=> {
@@ -75,10 +82,19 @@ const Login =()=>{
         <h1>Log In</h1>
         {showSignupMsg && <p className="success-signup">Signup successful! Please login to continue</p>}
         {showResetPasswordMsg && <p className="success-reset-password">Reset password successful! Please login to continue</p>}
-        {isSuccess && <p>{data.message}</p>}
-        {isError && <p>{error?.response?.data.message}</p>}
-        <Input label="Email" name="email" type="email"/>
-        <Input label="Password" name="password" type="password" autoComplete="password"/>
+
+        <Input 
+          label="Email" 
+          name="email" 
+          type="email"
+        />
+
+        <Input 
+          label="Password" 
+          name="password" 
+          type="password" 
+          autoComplete="password"
+        />
 
         <div className= "login-btn">
           <Link to="/forgot-password" className="forgot-password">Forgotten password?</Link>

@@ -1,12 +1,12 @@
 import "../components/Sidebar.css";
 import { useState } from "react";
-import { FaBars, FaBox, FaShoppingCart, FaSignOutAlt } from "react-icons/fa";
+import { FaBars, FaBox, FaShoppingCart, FaUniversity, FaSignOutAlt } from "react-icons/fa";
 import { logOut } from "../auth.js";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 
 const Sidebar = () => {
-  const [ isOpen, setIsOpen] = useState(true)
+  const [ isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
 
@@ -43,6 +43,10 @@ const handleLogout = async () => {
 
           <div className="sidebar-products">
             <button onClick={()=> navigate("/admin-dashboard/products")}><FaBox/>{isOpen && <span style={{marginLeft: "8px"}}>Products</span>}</button>
+          </div>
+
+          <div className="sidebar-products">
+            <button onClick={()=> navigate("/admin-dashboard/bank-account")}><FaUniversity/>{isOpen && <span style={{marginLeft: "8px"}}>Bank-Details</span>}</button>
           </div>
         </div>
 

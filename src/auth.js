@@ -13,11 +13,14 @@ export const resetPasswordMutation = async( {token, newPassword} ) => {
 };
 
 export const loginMutation = async (data)=> {
-  const response = await api.post("/login", data);
+  try {
+    const response = await api.post("/login", data);
+    return response.data
 
-  console.log(response)
-  
-  return response.data
+  }catch (err) {
+    console.log(err)
+    throw err
+  }
 };
 
 export const logOut = async() => {
@@ -32,7 +35,13 @@ export const logOut = async() => {
 };
 
 export const checkAuth = async ()=> {
-  const response = await api.get("/auth-check")
+  try {
+    const response = await api.get("/auth-check")
+  
+    return response.data 
 
-  return response.data
+  }catch (err) {
+    return null
+  }
+
 };

@@ -1,0 +1,15 @@
+.edit-bank-container {
+  width: 100%;
+}
+
+.edit-account-form {
+  width: 30%;
+  margin: auto;
+  box-shadow: 0px 0px 5px -1px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.edit-account-form h1 {
+  text-align: center;
+}

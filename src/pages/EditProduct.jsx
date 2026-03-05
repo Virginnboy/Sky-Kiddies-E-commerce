@@ -55,6 +55,7 @@ export default EditProduct;
 
 export const loader = async({params}) => {
   const id = params.productId
+  console.log(id)
   try {
     const response = await axios.get(`http://localhost:5000/admin/product-details/${id}`, {withCredentials: true});
 

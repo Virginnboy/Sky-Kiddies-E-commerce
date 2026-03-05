@@ -15,8 +15,14 @@ height: 84.5vh;
 
 .add-product-btn button {
   padding: 5px 10px;
+  font-size: 17px;
   border-radius: 5px;
   position: fixed;
+}
+
+.add-product-btn button:hover {
+  background-color: rgb(84, 82, 82);
+  color: aliceblue;
 }
 
 .loading {

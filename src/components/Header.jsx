@@ -1,10 +1,14 @@
 import "../components/Header.css";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { checkAuth } from "../auth";
 
 
 export default function Header() {
+  const queryClient = useQueryClient();
+  // const data = queryClient.getQueryData(["auth"])
+
+  // const user = data?.user
 
   const { data } = useQuery({
     queryKey: ["auth"], 
