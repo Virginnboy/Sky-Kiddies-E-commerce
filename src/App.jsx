@@ -53,6 +53,8 @@ import OrderDetails from "./pages/OrderDetails";
 ])
 
 function App() {
+  // console.log(import.meta.env.VITE_API_URL);
+
 
   useQuery({
     queryKey: ["auth"],
