@@ -14,3 +14,12 @@ button {
   height: 500px;
   object-fit: cover;
 }
+
+@media (max-width: 480px) {
+  html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal overflow */
+  min-height: 100vh;   /* ensure body at least fills viewport height */
+}
+}

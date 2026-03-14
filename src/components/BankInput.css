@@ -77,3 +77,13 @@
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
+
+@media (max-width: 480px) {
+  .form-group label {
+  font-size: 1.3rem;
+}
+
+  .form-input {
+    height: 25rem;
+  }
+}

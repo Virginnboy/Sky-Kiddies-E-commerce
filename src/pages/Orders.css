@@ -1,0 +1,149 @@
+.order-container{
+  padding: 25px;
+  background: #f8f9fb;
+  width: 100%;
+}
+
+.order-title{
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Table */
+
+.order-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Header */
+
+.order-table thead{
+  background: #111827;
+  color: white;
+}
+
+.order-table th{
+  text-align: left;
+  padding: 14px;
+  font-size: 14px;
+}
+
+/* Table Rows */
+
+.order-table td{
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.order-table tbody tr:hover{
+  background: #f4f6f8;
+}
+
+.order-link{
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.order-link:hover{
+  text-decoration: underline;
+}
+
+/* Status Badge */
+
+.status{
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+/* Pending */
+
+.status.pending{
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* Confirmed */
+
+.status.confirmed{
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Declined */
+
+.status.declined{
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Buttons */
+
+.order-actions{
+  display: flex;
+  gap: 8px;
+}
+
+.confirm-btn{
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover{
+  background: #15803d;
+}
+
+.decline-btn{
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.decline-btn:hover{
+  background: #b91c1c;
+}
+
+@media (max-width: 480px) {
+  .order-card {
+    /* border: 1px solid red; */
+  }
+
+  .card {
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    box-shadow: 0px 0px 3px -1px;
+    border-radius: 10px;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  .card b {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: oblique;
+  }
+
+  .view-order-btn button {
+    width: 100%;
+    font-size: 20px;
+    background-color: rgb(43, 42, 42);
+    color: white;
+    padding: 10px 0px;
+  }
+}

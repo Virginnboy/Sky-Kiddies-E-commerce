@@ -1,10 +1,19 @@
 import api from "../axios";
+import Loader from "../components/Loader.jsx";
 import { useLoaderData, useNavigation, useNavigate, useSubmit, redirect } from "react-router-dom";
 import "../pages/ProductDetails.css";
 import Modal from "../components/Modal";
 import { useContext } from "react";
 import UserProgressContext from "../store/ProgressContext";
 import { formattedCurrency } from "../formattedPrice.js";
+import { FaArrowLeft } from "react-icons/fa";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const ProductDetails = () => {
   const submit = useSubmit();
@@ -18,11 +27,7 @@ const ProductDetails = () => {
   const isDeleting = navigation.state === "submitting"
 
   if (isLoading) {
-    return (
-      <div className="loading">
-        <p>Loading...</p>
-      </div>
-    )
+    return <Loader/>
   };
 
 
@@ -47,12 +52,24 @@ const ProductDetails = () => {
         </div>
       </Modal>}
 
+
       <div className="product-details-container">
+        <section>
+          <button onClick={()=>navigate(-1)} className="back-btn">
+            <FaArrowLeft size={30} className="back-icon"/>
+          </button>
+        </section>
+
         <h1>Product Details</h1>
         <div className="product-details-items">
-          <div id="product-details-img-container">
-            <img src={product.images} alt={product.title} />
-          </div>
+
+        <Swiper modules={[Pagination, Navigation]} pagination={{ clickable: true}} navigation spaceBetween={20} slidesPerView={1}>
+          {(product?.images || []).map((img)=> (
+            <SwiperSlide key={img}>
+              <img src={img} alt="product" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
           <div id="product-des-title-container">
             <h2 id="product-title">{product.title}</h2>

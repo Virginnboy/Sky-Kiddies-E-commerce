@@ -1,14 +1,16 @@
 import "../components/Header.css";
-import { Link } from "react-router-dom";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { checkAuth } from "../auth";
+import { FaBars, FaChevronDown} from "react-icons/fa";
 
 
-export default function Header() {
-  const queryClient = useQueryClient();
-  // const data = queryClient.getQueryData(["auth"])
+export default function Header({isOpen, setIsOpen}) {
+  const location = useLocation();
+  const path = location.pathname
 
-  // const user = data?.user
+  const [ showDropdown, setShowDropDown ] = useState(false);
 
   const { data } = useQuery({
     queryKey: ["auth"], 
@@ -22,7 +24,14 @@ export default function Header() {
 
   return (
     <nav className="nav-bar">
-      <h1>Sky Kiddies</h1>
+      <div className="fa-bars-container">
+        <FaBars 
+          size={24}
+          className={`faBars ${user? "faBars" : "fagba"}`}
+          onClick={()=>setIsOpen(!isOpen)}
+        />
+        <h1>Sky Kiddies</h1>
+      </div>
 
       <ul>
         <li><Link to={user ? "/admin-dashboard" : "/"} id="navbar-home">Home</Link></li>  
@@ -30,11 +39,20 @@ export default function Header() {
         {user? (
         <li><Link>Hello {user.firstName}</Link></li> 
         ) : (
-            <li>Profile</li>
+            <li className="profile-menu" onMouseEnter={()=>setShowDropDown(true)} onMouseLeave={()=>setShowDropDown(false)}>
+              <span onClick={()=>setShowDropDown(!showDropdown)}>Profile</span> 
+              <span onClick={()=>setShowDropDown(!showDropdown)}><FaChevronDown className="fa-chevron-down"/></span>
+                <ul className={`login-signup-dropdown ${showDropdown ? "open" : ""}`}>
+                  <li><Link to="/login" className="login-link">Login</Link></li>
+                  <li><Link to="/signup" className="signup-link">Signup</Link></li>
+                </ul>
+            </li>
       )}
       
-        {!user && <li><Link to="/login">Login</Link> / <Link to="/signup">Signup</Link></li>}
-
+        {/* {!user && <li>
+          {path === "/signup" && <Link to="/login">Login</Link>}
+          {path === "/login" && <Link to="/signup">Signup</Link>}
+          </li>} */}
       </ul>
     </nav>
   )

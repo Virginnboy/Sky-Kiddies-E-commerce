@@ -18,3 +18,17 @@
   text-align: center;
   font-size: 2.2rem;
 }
+
+@media (max-width: 480px) {
+  .add-account-container {
+    height: 82vh;
+  }
+
+  .bank-account-container {
+    width: 90%;
+    margin-top: 45px;
+    margin: auto;
+    align-items: center;
+    
+  }
+}

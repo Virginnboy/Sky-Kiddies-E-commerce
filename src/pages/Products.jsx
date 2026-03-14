@@ -2,6 +2,7 @@ import ProductList from "./ProductList";
 import axios from "axios";
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import "../pages/Products.css";
+import Loader from "../components/Loader";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -9,13 +10,9 @@ const Products = () => {
   const data = useLoaderData();
 
   if (navigation.state === "loading") {
-    return (
-      <div className="loading">
-        <p>Loading...</p>
-      </div>
-    )
+    return <Loader/>
   }
-
+  
   return (
     <div className="products-container">
       <div className="add-product-btn"> 

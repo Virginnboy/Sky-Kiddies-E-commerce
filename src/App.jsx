@@ -20,6 +20,7 @@ import { Toaster } from "react-hot-toast";
 import AuthRedirect from "./auth/AuthRedirect";
 import AddBankDetails from "./components/AddBankDetails";
 import EditBankDetails, {loader as editBankLoader} from "./components/EditBankDetails";
+import OrderDetails from "./pages/OrderDetails";
 
 
   const router = createBrowserRouter([
@@ -42,6 +43,7 @@ import EditBankDetails, {loader as editBankLoader} from "./components/EditBankDe
           {path: "add-product", element: <AddProducts/>},
           {path: "edit-product/:productId", element: <EditProduct/>, loader: editingProduct},
           {path: "orders", element: <Orders/>},
+          {path: "order-details/:orderId", element: <OrderDetails/>},
           {path: "bank-account", element: <BankAccount/>},
           {path: "add/bank-account", element: <AddBankDetails/>},
           {path: "edit/bank-details/:accountId", element: <EditBankDetails/>, loader:editBankLoader}

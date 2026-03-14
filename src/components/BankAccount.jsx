@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchBankDetails } from "../util";
-import Spinner from "./Spinner";
 import "../components/BankAccount.css";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 const BankAccount = () => {
   const { data, isLoading } = useQuery({
@@ -11,12 +11,8 @@ const BankAccount = () => {
   });
 
   if (isLoading) {
-    return <div style={{width: "100%", height: "70vh", margin: "auto"}}>
-      <Spinner />;
-    </div>
+    return <Loader/>
   }
-
-  console.log(data)
 
   return (
     <div className="bank-container">

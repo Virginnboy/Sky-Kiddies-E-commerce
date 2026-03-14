@@ -2,7 +2,7 @@ import "../components/BankInput.css";
 
 export default function BankInput({acct, isPending}) {
   return (
-    <div>
+    <div className="bank-input-container">
       <div className="form-group">
         <label htmlFor="bankName">Bank Name</label>
         <input 

@@ -1,10 +1,9 @@
 .products-container {
 width: 100%;
-/* border: 2px solid green; */
 display: flex;
 flex-direction: column;
 overflow-y: auto;
-height: 84.5vh;
+height: 83vh;
 }
 
 .add-product-btn {
@@ -28,4 +27,16 @@ height: 84.5vh;
 .loading {
   display: flex;
   margin: auto;
+}
+
+@media(max-width: 480px) {
+  .products-container {
+    height: 76.5vh;
+  }
+
+
+  .add-product-btn button {
+    border: 1px solid rgb(131, 129, 129);
+    padding: 8px 15px;
+  }
 }

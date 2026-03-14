@@ -3,13 +3,21 @@
   align-items: center;
   background-color: rgb(197, 199, 202);
   justify-content: space-between;
-  padding: 15px 30px;
-  /* flex-shrink: 0; */
+  height: 110px;
+}
+.nav-bar h1{
+  margin-left: 30px;
+}
+
+.faBars {
+  display: none;
 }
 
 .nav-bar ul{
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  justify-content: end;
+  margin-right: 50px;
 }
 
 #navbar-home:hover {
@@ -24,13 +32,88 @@ li{
   list-style: none;
 }
 
-button{
-  border: none;
-  background-color: rgb(197, 199, 202);
-  border-radius: 5px;
-}
-
 a{
   text-decoration: none;
   color: black;
+}
+
+.profile-menu {
+  display: flex;
+  gap: 3px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.fa-chevron-down{
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+.login-signup-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -40px;
+  top: 70px;
+  background-color: white;
+  width: 80px;
+  box-shadow: 0px 0px 3px -1px;
+  opacity: 0;
+  border-radius: 5px;
+  height: 70px;
+  padding-bottom: 20px;
+  /* pointer-events: none; */
+  transform: translateY(-10px);
+  transition: 0.6s ease;
+}
+
+.login-signup-dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.login-link:hover {
+  color: rgb(81, 80, 80);
+}
+
+.signup-link {
+  color: rgb(81, 80, 80);
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    height: 120px;
+  }
+  
+  .fa-bars-container {
+  display: flex;
+  gap: 15px;
+  margin-left: 5px;
+  align-items: center;
+}
+
+.faBars {
+  display: block;
+}
+
+  .nav-bar h1 {
+    font-size: 25px;
+  }
+
+  .nav-bar ul {
+    width: 35%;
+    padding: 10px;
+    margin-right: 20px;
+  }
+
+  .faBars.fagba{
+    display: none;
+  }
+
+  .login-signup-dropdown {
+    right: -15px;
+    text-align: center;
+    top: 90px;
+  }
 }

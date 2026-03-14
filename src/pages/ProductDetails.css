@@ -16,18 +16,13 @@
   text-align: center;
 }
 
-#product-details-img-container {
-  border: 4px solid ;
-  width: 35%;
-  margin: auto;
-  height: 43vh;
+.swiper img{
+  width: 50%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-#product-details-img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 #product-des-title-container {
   border: 3px solid white;
@@ -108,4 +103,26 @@
 .confirm-delete:hover {
   color: white;
   background-color: rgb(41, 40, 40);
+}
+
+@media (max-width: 480px) {
+  .product-details-container {
+    width: 100%;
+    height: 81vh;
+  }
+
+  #price-quantity {
+    margin-bottom: 30px;
+  }
+
+  .swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+  .swiper img{
+    width: 70%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 }

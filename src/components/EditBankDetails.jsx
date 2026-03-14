@@ -47,7 +47,7 @@ const EditBankDetails = () => {
     <div className="edit-bank-container">
         <div>
           <button onClick={()=>navigate(-1)} className="back-btn">
-            <FaArrowLeft className="back-icon"/>
+            <FaArrowLeft size={30} className="back-icon"/>
           </button>
         </div>
       <form className="edit-account-form" onSubmit={handleEditAccountDetails}>

@@ -61,3 +61,34 @@ export const editAccountDetails = async ({accountId, editedInfo})=> {
   }
 }
 
+export const fetchOrders = async ()=> {
+  try {
+    const response = await api.get("/orders");
+    return response.data
+  }catch(err) {
+    console.log(err)
+    throw err
+  }
+}
+
+export const fetchOrderdetails = async (orderId) => {
+  try {
+    const response = await api.get(`/order-details/${orderId}`)
+    return response.data
+  }catch (err) {
+    console.log(err)
+    throw err
+  }
+}
+
+export const confirmOrder = async ({orderId, status}) => {
+  try {
+    const response = await api.patch(`/confirm-order/${orderId}`, {status})
+    console.log(response)
+    return response.data
+  }catch (err) {
+    console.log(err);
+    throw err
+  }
+}
+

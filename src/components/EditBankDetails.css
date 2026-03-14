@@ -13,3 +13,19 @@
 .edit-account-form h1 {
   text-align: center;
 }
+
+@media (max-width: 480px) {
+  .edit-account-form {
+    width: 70%;
+    margin: auto;
+    margin-top: 55px;
+  }
+
+  .edit-bank-container {
+    height: 80vh;
+  }
+
+  .back-btn {
+    border: none;
+  }
+}

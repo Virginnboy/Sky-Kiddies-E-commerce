@@ -1,4 +1,14 @@
 .dashbaord-layout {
   display: flex;
   overflow: hidden;
+} 
+
+.dashboard-content {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+
+  }
 }

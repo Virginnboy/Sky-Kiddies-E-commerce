@@ -1,23 +1,11 @@
-.form-container form{
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 70%;
-  padding: 0px 0px;
-}
-
+/* Full page container */
 .form-container {
-  height: 60vh;
-  display: flex;
-}/* Full page container */
-.form-container {
-  min-height: 79vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f4f6f9;
   padding: 20px;
-  /* border: 1px solid red; */
+  height: 78vh;
 }
 
 /* Form card */
@@ -53,6 +41,7 @@
 
 /* Input styling */
 input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 12px 15px;
@@ -64,6 +53,7 @@ input[type="password"] {
 }
 
 input[type="email"]:focus,
+input[type="text"]:focus,
 input[type="password"]:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
@@ -166,4 +156,10 @@ p {
 .success-signup {
   color: green;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+.form-container{
+  height: 71vh;
+}
 }
