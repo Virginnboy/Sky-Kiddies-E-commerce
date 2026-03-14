@@ -98,7 +98,7 @@ export default ProductDetails
 export const loader = async ({params}) => {
   const id = params.productId
   try {
-    const response = await api.get("/product-details/" + id);
+    const response = await api.get("/admin/product-details/" + id);
 
     if (!response.data) {
       throw new Response("Product not found", { status: 404 });
@@ -115,7 +115,7 @@ export const action = async ({params})=> {
   const id = params.productId
     console.log(id)
   try { 
-    await api.delete("/delete-product/" + id);
+    await api.delete("/admin/delete-product/" + id);
     
     return redirect("/admin-dashboard/products")
 

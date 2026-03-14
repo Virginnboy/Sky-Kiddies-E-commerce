@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../axios";
 import ProductForm from "./ProductForm"
 import { useNavigate } from "react-router-dom";
 import "../pages/EditProduct.css"
@@ -57,7 +57,7 @@ export const loader = async({params}) => {
   const id = params.productId
   console.log(id)
   try {
-    const response = await axios.get(`http://localhost:5000/admin/product-details/${id}`, {withCredentials: true});
+    const response = await api.get(`/admin/product-details/${id}`, {withCredentials: true});
 
     return response.data;
 

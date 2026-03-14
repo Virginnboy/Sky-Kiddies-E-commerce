@@ -1,7 +1,7 @@
 import "../auth/Signup.css";
 import AuthForm from "../components/AuthForm";
 import { Link, redirect, useActionData, useNavigation } from "react-router-dom";
-import axios from "axios";
+import api from "../axios"
 
 const Signup = () => {
   const data = useActionData();
@@ -34,7 +34,7 @@ export async function action({request}) {
     }
 
     try {
-      await axios.post("http://localhost:5000/admin/signup", {email, firstName, password});
+      await api.post("/admin/signup", {email, firstName, password});
 
       return redirect("/login?signup=success")
 

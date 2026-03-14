@@ -68,7 +68,7 @@ export async function loader({params}) {
   const accountId = params.accountId
   console.log(accountId)
   try {
-    const response = await api.get(`/get-bank-details/${accountId}`);
+    const response = await api.get(`/admin/get-bank-details/${accountId}`);
     return response.data
 
   }catch(err) {

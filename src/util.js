@@ -3,7 +3,7 @@ import api from "./axios";
 
 export const editProductMutation = async ({id, formData}) => {
   try {
-    const response = await api.patch(`/edit-product/${id}`, formData)
+    const response = await api.patch(`/admin/edit-product/${id}`, formData)
 
     return response.data
     
@@ -15,7 +15,7 @@ export const editProductMutation = async ({id, formData}) => {
 
 export const uploadProductMutation = async (formData) => {
   try {
-    const response = await api.post("/uploadProduct", formData);
+    const response = await api.post("/admin/uploadProduct", formData);
 
     return response.data
 
@@ -27,7 +27,7 @@ export const uploadProductMutation = async (formData) => {
 
 export const addAccount = async (accountInfo)=> {
   try {
-    const response = await api.post("/add-account", accountInfo);
+    const response = await api.post("/admin/add-account", accountInfo);
 
     return response.data
   }catch (err) {
@@ -38,7 +38,7 @@ export const addAccount = async (accountInfo)=> {
 
 export const fetchBankDetails = async ()=> {
   try {
-    const response = await api.get("/fetch-account")
+    const response = await api.get("/admin/fetch-account")
 
     return response.data
 
@@ -52,7 +52,7 @@ export const editAccountDetails = async ({accountId, editedInfo})=> {
   console.log(accountId)
   console.log(editedInfo)
   try {
-    const response = await api.patch(`/edit-account/${accountId}`, editedInfo);
+    const response = await api.patch(`/admin/edit-account/${accountId}`, editedInfo);
 
     return response.data
   }catch (err) {
@@ -63,7 +63,7 @@ export const editAccountDetails = async ({accountId, editedInfo})=> {
 
 export const fetchOrders = async ()=> {
   try {
-    const response = await api.get("/orders");
+    const response = await api.get("/admin/orders");
     return response.data
   }catch(err) {
     console.log(err)
@@ -73,7 +73,7 @@ export const fetchOrders = async ()=> {
 
 export const fetchOrderdetails = async (orderId) => {
   try {
-    const response = await api.get(`/order-details/${orderId}`)
+    const response = await api.get(`/admin/order-details/${orderId}`)
     return response.data
   }catch (err) {
     console.log(err)
@@ -83,7 +83,7 @@ export const fetchOrderdetails = async (orderId) => {
 
 export const confirmOrder = async ({orderId, status}) => {
   try {
-    const response = await api.patch(`/confirm-order/${orderId}`, {status})
+    const response = await api.patch(`/admin/confirm-order/${orderId}`, {status})
     console.log(response)
     return response.data
   }catch (err) {

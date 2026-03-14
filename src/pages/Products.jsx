@@ -1,5 +1,5 @@
 import ProductList from "./ProductList";
-import axios from "axios";
+import api from "../axios";
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import "../pages/Products.css";
 import Loader from "../components/Loader";
@@ -31,7 +31,7 @@ export default Products;
 
 export const loader = async ()=> {
   try {
-    const response = await axios.get("http://localhost:5000/admin/products", {withCredentials: true});
+    const response = await api.get("/admin/products");
 
     return response.data
   } catch (err) {
