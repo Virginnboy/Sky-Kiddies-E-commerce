@@ -34,9 +34,8 @@ import OrderDetails from "./pages/OrderDetails";
       {path: "login", element: <Login/>},
       {path: "forgot-password", element: <ForgotPassword/>},
       {path: "reset-password/:resetPasswordToken", element: <ResetPassword/>, action: resetPasswordAction},
-      {path: "admin-dashboard", element: <ProtectedRoute>
-        <AdminDashboardLayout/>
-      </ProtectedRoute>, children: [
+      {path: "admin-dashboard", element: <AdminDashboardLayout/>, 
+        children: [
           {index: true, element: <Products/>, loader: productsLoader},
           {path: "products", element: <Products/>, loader: productsLoader},
           {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
