@@ -23,7 +23,13 @@ const Login =()=>{
     mutationFn: loginMutation,
 
     onSuccess: (data) => {
-      queryClient.setQueryData(["auth"], {
+      console.log(data);
+      const adminToken = data?.token
+      const adminData = data?.user
+      
+      localStorage.setItem("adminToken", adminToken);
+      localStorage.setItem("adminData", JSON.stringify(adminData));
+      queryClient.setQueryData(["adminAuth"], {
         authenticated: true,
         user: data?.user
       });

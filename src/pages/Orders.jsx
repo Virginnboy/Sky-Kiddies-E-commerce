@@ -60,7 +60,7 @@ const Orders = () => {
               <td>{formattedCurrency.format(order.totalPrice)}</td>
 
               <td>
-                <span className={`status ${order.status}`}>
+                <span className={`status ${order.status.toLowerCase()}`}>
                   {order.status}
                 </span>
               </td>

@@ -21,6 +21,7 @@ import AuthRedirect from "./auth/AuthRedirect";
 import AddBankDetails from "./components/AddBankDetails";
 import EditBankDetails, {loader as editBankLoader} from "./components/EditBankDetails";
 import OrderDetails from "./pages/OrderDetails";
+import Message from "./components/Message";
 
 
   const router = createBrowserRouter([
@@ -34,8 +35,9 @@ import OrderDetails from "./pages/OrderDetails";
       {path: "login", element: <Login/>},
       {path: "forgot-password", element: <ForgotPassword/>},
       {path: "reset-password/:resetPasswordToken", element: <ResetPassword/>, action: resetPasswordAction},
-      {path: "admin-dashboard", element: <AdminDashboardLayout/>, 
-        children: [
+      {path: "admin-dashboard", element: <ProtectedRoute>
+        <AdminDashboardLayout/>
+      </ProtectedRoute>, children: [
           {index: true, element: <Products/>, loader: productsLoader},
           {path: "products", element: <Products/>, loader: productsLoader},
           {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
@@ -45,18 +47,17 @@ import OrderDetails from "./pages/OrderDetails";
           {path: "order-details/:orderId", element: <OrderDetails/>},
           {path: "bank-account", element: <BankAccount/>},
           {path: "add/bank-account", element: <AddBankDetails/>},
-          {path: "edit/bank-details/:accountId", element: <EditBankDetails/>, loader:editBankLoader}
+          {path: "edit/bank-details/:accountId", element: <EditBankDetails/>, loader:editBankLoader},
+          {path: "chats", element: <Message/>}
+
         ]}
   ] },
-
 ])
 
 function App() {
-  // console.log(import.meta.env.VITE_API_URL);
-
 
   useQuery({
-    queryKey: ["auth"],
+    queryKey: ["adminAuth"],
     queryFn: checkAuth,
   });
 

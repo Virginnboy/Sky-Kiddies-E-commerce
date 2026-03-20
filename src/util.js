@@ -92,3 +92,13 @@ export const confirmOrder = async ({orderId, status}) => {
   }
 }
 
+export const fetchUserChats = async () => {
+  try {
+    const response = await api.get("/admin/chats");
+    return response.data;
+  }catch (err) {
+    console.log(err);
+    throw err
+  }
+}
+

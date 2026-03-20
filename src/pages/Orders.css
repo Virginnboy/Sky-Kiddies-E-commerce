@@ -61,6 +61,8 @@
   border-radius: 20px;
   font-size: 12px;
   text-transform: capitalize;
+  width: 20%;
+  margin: auto !important;
 }
 
 /* Pending */
@@ -145,5 +147,9 @@
     background-color: rgb(43, 42, 42);
     color: white;
     padding: 10px 0px;
+  }
+
+  .status {
+    width: 80%;
   }
 }

@@ -6,9 +6,10 @@ import Spinner from "../components/Spinner";
 
 export default function AuthRedirect() {
   const { data, isLoading } = useQuery({
-    queryKey: ["auth"],
+    queryKey: ["adminAuth"],
     queryFn: checkAuth
   })
+  console.log(data)
 
   if (isLoading) return <Spinner/>;
 

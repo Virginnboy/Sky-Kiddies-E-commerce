@@ -13,7 +13,7 @@ export default function Header({isOpen, setIsOpen}) {
   const [ showDropdown, setShowDropDown ] = useState(false);
 
   const { data } = useQuery({
-    queryKey: ["auth"], 
+    queryKey: ["adminAuth"], 
     queryFn: checkAuth,
     retry: false,
     staleTime: 5 * 60 * 1000
@@ -28,7 +28,7 @@ export default function Header({isOpen, setIsOpen}) {
         <FaBars 
           size={24}
           className={`faBars ${user? "faBars" : "fagba"}`}
-          onClick={()=>setIsOpen(!isOpen)}
+          onClick={()=>setIsOpen(prev=> !prev)}
         />
         <h1>Sky Kiddies</h1>
       </div>

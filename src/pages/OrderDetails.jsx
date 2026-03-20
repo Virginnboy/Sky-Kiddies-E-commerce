@@ -74,7 +74,7 @@ const OrderDetails = () => {
           </header>
             <p>Order #: {data?.order?.orderNumber}</p>
             <p>Total Amount: {formattedCurrency.format(data?.order?.totalPrice)}</p>
-            <p>Status: {data?.order?.status}</p>
+            <p className={`status ${data?.order.status.toLowerCase()}`}>Status: {data?.order?.status}</p>
             <p>Date: {formattedDate(data?.order?.updatedAt)}</p>
             <p>Payment Method: {data?.order?.paymentMethod}</p>
         </section>
@@ -186,6 +186,7 @@ const OrderDetails = () => {
 
         <section className="last-section-btn-container">
           <button 
+            disabled={isPending}
             className="order-confirm-btn"
             onClick={handleConfirmOrder}
           >{isPending? "Confirming order..." : "Confirm"}</button>

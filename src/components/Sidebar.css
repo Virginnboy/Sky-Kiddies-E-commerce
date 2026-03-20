@@ -6,6 +6,7 @@
   flex-direction: column;
   transition: width 0.2s ease;
   margin-bottom: auto;
+  width: 11rem;
 }
 
 .sidebar.open {

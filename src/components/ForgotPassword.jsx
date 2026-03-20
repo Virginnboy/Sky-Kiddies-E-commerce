@@ -2,6 +2,7 @@ import Input from "./Input";
 import { forgotPasswordMutation } from "../auth";
 import "../components/ForgotPassword.css";
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 
 export default function ForgotPassword() {
@@ -9,7 +10,7 @@ export default function ForgotPassword() {
     mutationFn: forgotPasswordMutation,
 
     onSuccess: (res)=> {
-      console.log(res.data?.message)
+      toast.success(res?.message)
     },
 
     onError: (err)=> {
@@ -29,7 +30,7 @@ export default function ForgotPassword() {
     <form method="post" className="forgot-password-container" onSubmit={handleSubmit}>
       <div className="forgot-password-border">
         <h1>Forgot Password</h1>
-        {data && <p className="forgot-password-resetLink-text">{data.data?.message}</p>}
+        {data && <p className="forgot-password-resetLink-text">{data?.message}</p>}
         {error && <p>{error.response?.data.message}</p>}
         <Input 
         label="Email"
