@@ -11,7 +11,7 @@ const { data, isLoading } = useQuery({
   queryFn: checkAuth
 })
 
-const auth = data?.user 
+const auth = data?.authenticated; 
 
 if (isLoading) return <Spinner/>;
 
