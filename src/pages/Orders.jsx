@@ -51,16 +51,16 @@ const Orders = () => {
                   to={`/admin-dashboard/order-details/${order._id}`}
                   className="order-link"
                 >
-                  {order.orderNumber}
+                  {order?.orderNumber}
                 </Link>
               </td>
 
-              <td>{order.user?.firstName}</td>
+              <td>{order?.user?.firstName}</td>
 
               <td>{formattedCurrency.format(order.totalPrice)}</td>
 
               <td>
-                <span className={`status ${order.status.toLowerCase()}`}>
+                <span className={`status ${order?.status?.toLowerCase()}`}>
                   {order.status}
                 </span>
               </td>
@@ -74,13 +74,13 @@ const Orders = () => {
       {/* Card For Mobile */}
       <section>
         <div className="order-card">
-          {orders.map((order)=> (
+          {orders?.map((order)=> (
             <div key={order._id} className="card">
-              <p><b>Order No: </b><Link to={`/admin-dashboard/order-details/${order._id}`} className="order-link">{order.orderNumber}</Link></p>
-              <p><b>Customer: </b>{order.user.firstName}</p>
-              <p><b>Amount: </b>{formattedCurrency.format(order.totalPrice)}</p>
+              <p><b>Order No: </b><Link to={`/admin-dashboard/order-details/${order._id}`} className="order-link">{order?.orderNumber}</Link></p>
+              <p><b>Customer: </b>{order?.user?.firstName}</p>
+              <p><b>Amount: </b>{formattedCurrency.format(order?.totalPrice)}</p>
               <p><b>Status: </b>{order.status}</p>
-              <p><b>Date: </b>{formattedDate(order.updatedAt)}</p>
+              <p><b>Date: </b>{formattedDate(order?.updatedAt)}</p>
               <p className="view-order-btn"><button onClick={()=>navigate(`/admin-dashboard/order-details/${order._id}`)}>View Order</button></p>
             </div>
           ))}
