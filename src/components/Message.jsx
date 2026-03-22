@@ -35,7 +35,7 @@ export default function Message() {
   
   const admin = JSON.parse(localStorage.getItem("adminData"))
   
-  const adminId = admin._id 
+  const adminId = admin?._id 
   
   
   const handleSendMessage = (e) => {
