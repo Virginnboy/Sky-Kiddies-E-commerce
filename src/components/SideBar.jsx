@@ -17,13 +17,13 @@ const handleLogout = async () => {
   try {
     await logOut();
 
-    queryClient.setQueryData(["auth"], {
+    queryClient.setQueryData(["adminAuth"], {
       authenticated: false,
       user: null,
     });
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminData")
-
+    queryClient.invalidateQueries(["adminAuth"])
     navigate("/login");
   } catch (err) {
     console.error("Logout failed", err);
