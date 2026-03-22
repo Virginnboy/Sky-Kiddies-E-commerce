@@ -15,9 +15,9 @@ export default function Header({isOpen, setIsOpen}) {
   const { data } = useQuery({
     queryKey: ["adminAuth"], 
     queryFn: checkAuth,
-    retry: false,
-    staleTime: 5 * 60 * 1000
 });
+
+console.log(data);
 
   const user = data?.user;
 
