@@ -21,6 +21,7 @@ import AuthRedirect from "./auth/AuthRedirect";
 import AddBankDetails from "./components/AddBankDetails";
 import EditBankDetails, {loader as editBankLoader} from "./components/EditBankDetails";
 import OrderDetails from "./pages/OrderDetails";
+import Chat from "./components/Chat";
 import Message from "./components/Message";
 
 
@@ -48,8 +49,8 @@ import Message from "./components/Message";
           {path: "bank-account", element: <BankAccount/>},
           {path: "add/bank-account", element: <AddBankDetails/>},
           {path: "edit/bank-details/:accountId", element: <EditBankDetails/>, loader:editBankLoader},
-          {path: "chats", element: <Message/>}
-
+          {path: "chats", element: <Chat/>},
+          {path: "message/:userId", element: <Message/>}
         ]}
   ] },
 ])

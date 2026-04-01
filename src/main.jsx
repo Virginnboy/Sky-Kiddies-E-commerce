@@ -8,11 +8,11 @@ import { UserProgressContextProvider } from "../src/store/ProgressContext.jsx"
 const queryClient = new QueryClient();
 createRoot(document.getElementById('root')).render(
 
-  <StrictMode>
+  // <StrictMode>
     <QueryClientProvider client={queryClient}>
       <UserProgressContextProvider>
         <App /> 
       </UserProgressContextProvider>
     </QueryClientProvider>
-  </StrictMode>,
+  // </StrictMode>,
 )

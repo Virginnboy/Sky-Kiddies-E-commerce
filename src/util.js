@@ -102,3 +102,14 @@ export const fetchUserChats = async () => {
   }
 }
 
+export const fetchUserMessages = async (userId) => {
+  try {
+    const response = await api.get(`/admin/message/${userId}`);
+    console.log(response)
+    return response.data;
+  }catch (err) {
+    console.log(err);
+    throw err
+  }
+}
+

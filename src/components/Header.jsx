@@ -17,8 +17,6 @@ export default function Header({isOpen, setIsOpen}) {
     queryFn: checkAuth,
 });
 
-console.log(data);
-
   const user = data?.user;
 
 
