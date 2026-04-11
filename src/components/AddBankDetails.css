@@ -21,7 +21,7 @@
 
 @media (max-width: 480px) {
   .add-account-container {
-    height: 82vh;
+    height: 82dvh;
   }
 
   .bank-account-container {
