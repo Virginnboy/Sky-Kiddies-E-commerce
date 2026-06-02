@@ -13,6 +13,8 @@ const Chat = () => {
     queryFn: fetchUserChats
   });
 
+  console.log(data?.users.reverse())
+
     if (isLoading) {
     return <Loader/>
   }
@@ -29,9 +31,9 @@ const Chat = () => {
       </header>
 
       <main>
-        <div>
+        <div className="users-list">
           {data?.users?.map(user => <li key={user._id} onClick={()=>navigate(`/admin-dashboard/message/${user._id}`)}>
-            <h2>{user.firstName}</h2>
+            <h3>{user.firstName}</h3>
           </li>)}
         </div>
       </main>

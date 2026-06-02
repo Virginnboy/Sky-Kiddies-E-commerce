@@ -65,7 +65,7 @@ a{
   /* pointer-events: none; */
   transform: translateY(-10px);
   transition: 0.6s ease;
-}
+} 
 
 .login-signup-dropdown.open {
   opacity: 1;

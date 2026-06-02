@@ -60,6 +60,13 @@
   border-bottom-left-radius: 0;
 }
 
+.msg-status {
+  font-size: 11px;
+  display: flex;
+  justify-content: end;
+  font-style: italic;
+}
+
 /* Input section */
 .chat-input {
   display: flex;
@@ -89,4 +96,10 @@
 
 .chat-input button:hover {
   background-color: #111111;
+}
+
+@media (max-width: 480px) {
+  .chat-header {
+    gap: 120px;
+  }
 }

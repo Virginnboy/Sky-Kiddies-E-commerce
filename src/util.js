@@ -1,4 +1,21 @@
 import api from "./axios";
+import { jwtDecode } from "jwt-decode"
+
+export const tokenIsExpired = (token)=> {
+  try {
+    const decoded = jwtDecode(token);
+
+    if (!decoded.exp) {
+      return true
+    }
+
+    const currentTime = Date.now() / 1000
+
+    return decoded.exp < currentTime;
+  } catch (err) {
+    return true
+  }
+}
 
 
 export const editProductMutation = async ({id, formData}) => {
@@ -105,9 +122,19 @@ export const fetchUserChats = async () => {
 export const fetchUserMessages = async (userId) => {
   try {
     const response = await api.get(`/admin/message/${userId}`);
-    console.log(response)
+    // console.log(response)
     return response.data;
   }catch (err) {
+    console.log(err);
+    throw err
+  }
+}
+
+export const getSenderData = async (senderId)=> {
+  try {
+    const response = await api.get(`/admin/sender_data/${senderId}`);
+    return response.data;
+  }catch(err) {
     console.log(err);
     throw err
   }

@@ -5,23 +5,25 @@ import ErrorContent from '../components/ErrorContent';
 const ErrorPage = () => {
 
   const error = useRouteError();
+
+  console.log(error);
   
   let title = "An Error Occured!"
   let message = "Something went wrong"
 
-  if (error.status === 401) {
+  if (error?.status === 401) {
     title = "Authentication error";
-    message = error.data.message;
+    message = error?.data?.message  || "Unauthorized";
   }
   
-  if (error.status === 404) {
+  if (error?.status === 404) {
     title = "Not found!"
     message = "Could not found resource or page"
   }
 
-  if (error.status === 500) {
+  if (error?.status === 500) {
     title = "Server Error"
-    message: error.data.message
+    message= error?.data?.message || "Internal Server Error";
   }
 
 

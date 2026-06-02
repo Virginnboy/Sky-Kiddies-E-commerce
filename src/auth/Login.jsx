@@ -23,7 +23,7 @@ const Login =()=>{
     mutationFn: loginMutation,
 
     onSuccess: (data) => {
-      console.log(data);
+      // console.log(data);
       const adminToken = data?.token
       const adminData = data?.user
       
