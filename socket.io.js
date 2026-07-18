@@ -1,8 +1,8 @@
 import { io } from "socket.io-client";
 
-const token = localStorage.getItem("adminToken")
+const token = localStorage.getItem("adminToken");
 
-export const socket = io("https://sky-kiddies-back-end.onrender.com", {
+export const socket = io("http://localhost:5000", {
   auth: { token }
 });
 

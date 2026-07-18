@@ -9,7 +9,9 @@ export default function ProtectedRoute({children}) {
 const { data, isLoading } = useQuery({
   queryKey: ["auth"],
   queryFn: checkAuth
-})
+});
+
+console.log(data)
 
 const auth = data?.authenticated; 
 

@@ -28,7 +28,6 @@ export default function Message() {
     queryFn: ()=>getSenderData(params.userId)
   })
   
-  console.log(senderData)
   useEffect(()=> {
     if (data) {
       setMessages(data.messages || []);

@@ -14,14 +14,18 @@ const Orders = () => {
     queryKey: ["order"],
     queryFn: fetchOrders
   });
-
+console.log(data)
   const orders = data?.order || [];
-  console.log(orders)
+  // console.log(orders)
 
   if (isLoading) {
     return (
       <Loader/>
     )
+  }
+
+  if (orders.length === 0) {
+    return <h3 style={{color: "red", textAlign: "center",}}>Order is empty</h3>
   }
 
   return (

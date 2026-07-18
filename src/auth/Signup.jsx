@@ -39,6 +39,7 @@ export async function action({request}) {
       return redirect("/login?signup=success")
 
     }catch(err) {
+      console.log(err);
       return err.response?.data || { message: "Signup failed"}
     }
   }
