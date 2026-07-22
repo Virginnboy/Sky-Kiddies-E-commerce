@@ -105,8 +105,8 @@ npm run dev
 - Products
 - Add Product
 - Edit Product
-- Add Bank Account
-- Bank details
+- Manage Bank Details
+- Manage Admin Accounts
 - Orders
 - Customer Chats
 
