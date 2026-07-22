@@ -1,18 +1,130 @@
-# React + Vite
+# Sky Kiddies Admin Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Sky Kiddies Admin Frontend is the administrative dashboard for the Sky Kiddies e-commerce platform.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It enables administrators to manage products, monitor customer orders, communicate with users through real-time chat, and perform administrative tasks from a secure and responsive interface.
 
-## React Compiler
+This project was built using React and modern frontend technologies to provide an efficient and user-friendly management experience.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# Sky-Kiddies-E-commerce" 
-"# Sky-Kiddies-E-commerce" 
+- Admin Authentication
+- Dashboard
+- Product Management
+- Add Products
+- Edit Products
+- Delete Products
+- View Customer Orders
+- Manage User Accounts
+- Real-time Chat with Customers
+- Protected Admin Routes
+- Responsive Design
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- React Query
+- Axios
+
+### Styling
+
+- CSS
+
+### Authentication
+
+- JWT Authentication
+- Cookies
+
+## Project Structure
+
+```
+public/
+src/
+auth/
+components/
+pages/
+services/
+assets/
+api/
+App.jsx
+App.css
+main.jsx
+socket.io
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file and add the following variable:
+
+```env
+.env.development,
+VITE_API_URL=
+.env.production
+VITE_API_URL=
+```
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/Virginnboy/Sky-Kiddies-admin-side-front-end.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## Main Pages
+
+- Admin Signup
+- Admin Login
+- Dashboard
+- Products
+- Add Product
+- Edit Product
+- Add Bank Account
+- Bank details
+- Orders
+- Customer Chats
+
+---
+
+## Future Improvements
+
+- Sales Analytics Dashboard
+- Inventory Reports
+- Role-Based Access Control
+- Notification Center
+- Advanced Product Search
+
+---
+
+## Author
+
+**Adebayo Olajide**
+
+GitHub:
+https://github.com/Virginnboy
