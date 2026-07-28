@@ -1,6 +1,6 @@
-import Input from "./Input";
+import Input from "../components/Input";
 import axios from "axios";
-import "../components/ResetPassword.css";
+import "../pages/ResetPassword.css";
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 
 const ResetPassword = () => {
@@ -11,27 +11,39 @@ const ResetPassword = () => {
   return (
     <Form method="post" className="reset-password-container">
       <div className="reset-password-box">
-        <h1>Reset Password</h1>
-        {data && <p>{data.message}</p>}
-        <Input 
-          label="Password" 
-          name="new-password" 
-          id="reset-password"
-          type="password"
-          autoComplete ="new-password"
-          />
+<h1>Reset Password</h1>
 
-        <Input 
-          label="Confirm Password" 
-          name="confirm-new-password" 
-          id="confirm-new-password"
-          type="password"
-          autoComplete="new-password"
-          />
+<p className="reset-password-description">
+  Enter a new password for your account. Make sure it's strong and easy for you to remember.
+</p>
 
-        <div className="reset-password-btn-container">
-          <button type="submit" disabled={isSubmiting}>{isSubmiting ? "Saving..." : "Save"}</button>
-        </div>
+{data && (
+  <p className="error-text">
+    {data.message}
+  </p>
+)}
+
+<Input
+  label="New Password"
+  name="new-password"
+  id="reset-password"
+  type="password"
+  autoComplete="new-password"
+/>
+
+<Input
+  label="Confirm Password"
+  name="confirm-new-password"
+  id="confirm-new-password"
+  type="password"
+  autoComplete="new-password"
+/>
+
+<div className="reset-password-btn-container">
+  <button type="submit" disabled={isSubmiting}>
+    {isSubmiting ? "Saving..." : "Save Password"}
+  </button>
+</div>
       </div>
     </Form>
   )

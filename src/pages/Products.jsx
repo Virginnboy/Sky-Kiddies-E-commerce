@@ -1,5 +1,5 @@
+import api from "../api/axios";
 import ProductList from "./ProductList";
-import api from "../axios";
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import "../pages/Products.css";
 import Loader from "../components/Loader";

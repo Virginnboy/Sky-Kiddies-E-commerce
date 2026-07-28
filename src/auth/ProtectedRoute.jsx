@@ -1,14 +1,15 @@
 import { Navigate } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query";
-import { checkAuth } from "../auth";
+import { checkAuth } from "./auth"
 import Spinner from "../components/Spinner";
 
 
 export default function ProtectedRoute({children}) {
 
 const { data, isLoading } = useQuery({
-  queryKey: ["auth"],
-  queryFn: checkAuth
+  queryKey: ["adminAuth"],
+  queryFn: checkAuth,
+  retry: false,
 });
 
 console.log(data)

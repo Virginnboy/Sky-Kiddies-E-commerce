@@ -102,4 +102,8 @@
   .chat-header {
     gap: 120px;
   }
+
+  .chat-container {
+    height: 75vh;
+  }
 }

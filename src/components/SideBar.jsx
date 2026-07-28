@@ -1,7 +1,7 @@
 import "../components/Sidebar.css";
 import { FaBars, FaBox, FaShoppingCart, FaUniversity, FaSignOutAlt, FaComments } from "react-icons/fa";
-import { logOut } from "../auth.js";
-import { useNavigate, useLocation } from "react-router-dom";
+import { logOut } from "../auth/auth";
+import { useNavigate, useLocation, replace } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRef, useEffect } from "react";
 
@@ -21,10 +21,13 @@ const handleLogout = async () => {
       authenticated: false,
       user: null,
     });
+
     localStorage.removeItem("adminToken");
-    localStorage.removeItem("adminData")
-    queryClient.invalidateQueries(["adminAuth"])
-    navigate("/login");
+    localStorage.removeItem("adminData");
+    queryClient.invalidateQueries(["adminAuth"]);
+
+    navigate("/login", {replace: false});
+
   } catch (err) {
     console.error("Logout failed", err);
   }

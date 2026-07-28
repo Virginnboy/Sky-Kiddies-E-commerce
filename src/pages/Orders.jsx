@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchOrders } from "../util"
-import { formattedCurrency } from "../formattedPrice";
-import { formattedDate } from "../formattedDate";
+import { fetchOrders } from "../services/services"
+import { formattedCurrency } from "../utils/formattedCurrency";
+import { formattedDate } from "../utils/formattedDate";
 import { Link } from "react-router-dom";
 import "../pages/Orders.css";
 import Loader from "../components/Loader";
@@ -75,6 +75,7 @@ console.log(data)
         </tbody>
       </table>
 
+
       {/* Card For Mobile */}
       <section>
         <div className="order-card">
@@ -83,7 +84,7 @@ console.log(data)
               <p><b>Order No: </b><Link to={`/admin-dashboard/order-details/${order._id}`} className="order-link">{order?.orderNumber}</Link></p>
               <p><b>Customer: </b>{order?.user?.firstName}</p>
               <p><b>Amount: </b>{formattedCurrency.format(order?.totalPrice)}</p>
-              <p><b>Status: </b>{order.status}</p>
+              <p className={`status ${order?.status?.toLowerCase()}`}><b>Status: </b>{order.status}</p>
               <p><b>Date: </b>{formattedDate(order?.updatedAt)}</p>
               <p className="view-order-btn"><button onClick={()=>navigate(`/admin-dashboard/order-details/${order._id}`)}>View Order</button></p>
             </div>

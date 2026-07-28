@@ -1,10 +1,10 @@
-import api from "../axios";
+import api from "../api/axios";
 import ProductForm from "./ProductForm"
 import { useNavigate } from "react-router-dom";
 import "../pages/EditProduct.css"
 import { useLoaderData } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { editProductMutation } from "../util";
+import { editProductMutation } from "../services/services";
 import { useParams } from "react-router-dom";
 
 const EditProduct = () => {

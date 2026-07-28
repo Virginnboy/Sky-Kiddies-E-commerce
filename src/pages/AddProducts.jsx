@@ -1,5 +1,5 @@
 import ProductForm from "./ProductForm"
-import { uploadProductMutation } from "../util"
+import { uploadProductMutation } from "../services/services"
 import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast";

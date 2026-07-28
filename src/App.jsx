@@ -1,28 +1,27 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { checkAuth } from "./auth";
 import { useQuery } from "@tanstack/react-query";
-import Login from "./auth/Login";
+import Login from "./pages/Login";
 import RootLayout from "./components/RootLayout";
-import Signup, { action as signUpAction } from "./auth/Signup";
-import ForgotPassword from "./components/ForgotPassword";
-import ErrorPage from "./components/ErrorPage";
+import Signup, { action as signUpAction } from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
+import ErrorPage from "./pages/ErrorPage";
 import Products, {loader as productsLoader }  from "./pages/Products";
 import AdminDashboardLayout from "./components/AdminDashboardLayout";
 import Orders from "./pages/Orders";
 import AddProducts from "./pages/AddProducts";
 import ProductDetails, { loader as productDetailsLoader, action as deleteProductAction} from "./pages/ProductDetails";
 import EditProduct, {loader as editingProduct} from "./pages/EditProduct";
-import ResetPassword, {action as resetPasswordAction } from "./components/ResetPassword";
+import ResetPassword, {action as resetPasswordAction } from "./pages/ResetPassword";
 import ProtectedRoute from "./auth/ProtectedRoute";
-import BankAccount from "./components/BankAccount";
+import BankAccount from "./pages/BankAccount";
 import Spinner from "./components/Spinner";
 import { Toaster } from "react-hot-toast";
 import AuthRedirect from "./auth/AuthRedirect";
-import AddBankDetails from "./components/AddBankDetails";
-import EditBankDetails, {loader as editBankLoader} from "./components/EditBankDetails";
+import AddBankDetails from "./pages/AddBankDetails";
+import EditBankDetails, {loader as editBankLoader} from "./pages/EditBankDetails";
 import OrderDetails from "./pages/OrderDetails";
-import Chat from "./components/Chat";
-import Message from "./components/Message";
+import Chat from "./pages/Chat";
+import Message from "./pages/Message";
 
 
   const router = createBrowserRouter([
@@ -56,13 +55,7 @@ import Message from "./components/Message";
 ])
 
 function App() {
-
-  useQuery({
-    queryKey: ["adminAuth"],
-    queryFn: checkAuth,
-  });
-
-
+console.log("App useQuery");
 
   return (
     <>

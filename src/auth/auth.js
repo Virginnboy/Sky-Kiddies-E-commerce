@@ -1,15 +1,27 @@
-import api from "./axios";
+import api from "../api/axios";
 
 export const forgotPasswordMutation = async(email)=> {
-  const response = await  api.post("/admin/forgot-password", {email});
+  try{
+    const response = await  api.post("/admin/forgot-password", {email});
+  
+    return response.data;
 
-  return response.data;
+  }catch(err) {
+    console.log(err)
+    throw err
+  }
 }
 
 export const resetPasswordMutation = async( {token, newPassword} ) => {
-  const response = await api.post(`/admin/reset-password/${token}`, {newPassword});
+  try {
+    const response = await api.post(`/admin/reset-password/${token}`, {newPassword});
+  
+    return response.data;
 
-  return response.data;
+  }catch(err) {
+    console.log(err)
+    throw err
+  }
 };
 
 export const loginMutation = async (data)=> {
@@ -41,7 +53,7 @@ export const checkAuth = async ()=> {
     return response.data 
 
   }catch (err) {
-    return null
+    console.log(err)
+    throw err
   }
-
 };

@@ -2,7 +2,7 @@ import "../components/Header.css";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { checkAuth } from "../auth";
+import { checkAuth } from "../auth/auth";
 import { FaBars, FaChevronDown} from "react-icons/fa";
 
 
@@ -15,6 +15,7 @@ export default function Header({isOpen, setIsOpen}) {
   const { data } = useQuery({
     queryKey: ["adminAuth"], 
     queryFn: checkAuth,
+    retry: false
 });
 
   const user = data?.user;

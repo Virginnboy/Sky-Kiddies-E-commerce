@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams} from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Input from "../components/Input";
-import "../auth/Login.css";
-import { loginMutation } from "../auth";
+import "../pages/Login.css";
+import { loginMutation } from "../auth/auth";
 import toast from "react-hot-toast";
 
 const Login =()=>{
@@ -34,7 +34,7 @@ const Login =()=>{
         user: data?.user
       });
 
-      navigate("/admin-dashboard");
+      navigate("/admin-dashboard", {replace: true});
       toast.success(data?.message);
     },
     onError: (err) => {

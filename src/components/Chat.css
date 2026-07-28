@@ -1,9 +1,0 @@
-.users-list h3 {
-  border-bottom: 1px solid rgb(185, 183, 183);
-  padding: 10px;
-}
-
-.users-list h3:hover {
-  cursor: pointer;
-  background-color: silver;
-}

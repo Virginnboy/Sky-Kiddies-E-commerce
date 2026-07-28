@@ -148,13 +148,126 @@
   cursor: pointer;
 }
 
+/* ORDER DETAILS MODAL STYLING */  
+.order-details-modal {
+  width: 40%;
+  border:none;
+  box-shadow: 0px 0px 6px 0px;
+  border-radius: 15px;
+}
+
+.order-details-modal h1{
+  color:rgb(98, 8, 8);
+  text-align: center;
+}
+
+.order-details-modal h2 {
+  text-align: center;
+  padding: 30px 0px;
+}
+
+.order-details-modal span {
+  border-left: 3px solid rgb(234, 19, 19);
+  margin-left: 30px;
+}
+
+.order-details-modal h4{
+  text-align: center;
+}
+
+.order-details-modal textarea {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.prodeed-cancel-container {
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.edit-decline-container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-decline-btn {
+  padding: 5px 20px;
+  font-size: 17px;
+  background-color: white;
+  border: 0.2px solid;
+  border-radius: 5px;
+}
+
+.edit-decline-btn:hover{
+  font-size: 17.5px;
+}
+
+.pending-declining-btn {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+
+.cancel-proceed-btn {
+  font-size: 20px;
+  border: none;
+  background-color: white;
+}
+
+.cancel-proceed-btn:hover{
+  font-size: 20.2px;
+}
+
+.proceed-btn {
+  font-size: 18px;
+  color: white;
+  background-color: rgb(54, 53, 53);
+  padding: 6px 14px;
+  border-radius: 17px;
+}
+
+.proceed-btn:hover{
+  background-color: black;
+  font-size: 18.3px;
+  transition: 0.1s;
+}
+
+.proceed-btn:disabled {
+    cursor: not-allowed;
+    opacity: .6;
+}
+
+.final-decline-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+}
+
+.final-decline-btn:hover{
+  background-color: #dc2626;
+}
+
 @media (max-width: 480px) {
 .order-details-container {
   margin-top: 20px;
+  height: 75vh;
 }
   .order-details-container main {
   width: 90%;
 }
+
 
 .order-details-container h1 {
   font-size: 40px;
@@ -167,6 +280,26 @@
 
 .order-details-container p {
   font-size: 20px;
+}
+
+.order-confirm-btn {
+  font-size: 18px;
+}
+
+.order-confirm-cancel {
+  font-size: 18px;
+}
+
+.order-details-modal {
+  width: 80%;
+}
+
+.order-details-modal textarea {
+  width: 90%;
+}
+
+.final-decline-btn {
+  font-size: 17px;
 }
 
 .receipt-container img {
@@ -217,9 +350,5 @@
   .order-card{
     display: block;
     width: 90%;
-  }
-
-  .order-card-item {
-    
   }
 }

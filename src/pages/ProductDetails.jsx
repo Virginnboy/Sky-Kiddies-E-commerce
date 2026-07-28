@@ -1,11 +1,11 @@
-import api from "../axios";
+import api from "../api/axios.js";
 import Loader from "../components/Loader.jsx";
 import { useLoaderData, useNavigation, useNavigate, useSubmit, redirect } from "react-router-dom";
 import "../pages/ProductDetails.css";
 import Modal from "../components/Modal";
 import { useContext } from "react";
 import UserProgressContext from "../store/ProgressContext";
-import { formattedCurrency } from "../formattedPrice.js";
+import { formattedCurrency } from "../utils/formattedCurrency.js";
 import { FaArrowLeft } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";

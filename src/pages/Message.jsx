@@ -2,11 +2,11 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { fetchUserMessages, getSenderData } from "../util";
-import Loader from "./Loader";
+import { fetchUserMessages, getSenderData } from "../services/services";
+import Loader from "../components/Loader";
 import { useState, useRef, useEffect } from "react";
 import { socket } from "../../socket.io"
-import "../components/Message.css";
+import "../pages/Message.css";
 
 export default function Message() {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchBankDetails } from "../util";
-import "../components/BankAccount.css";
+import { fetchBankDetails } from "../services/services";
+import "../pages/BankAccount.css";
 import { Link } from "react-router-dom";
-import Loader from "./Loader";
+import Loader from "../components/Loader";
 
 const BankAccount = () => {
   const { data, isLoading } = useQuery({

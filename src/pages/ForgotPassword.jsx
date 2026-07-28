@@ -1,6 +1,6 @@
-import Input from "./Input";
-import { forgotPasswordMutation } from "../auth";
-import "../components/ForgotPassword.css";
+import Input from "../components/Input";
+import { forgotPasswordMutation } from "../auth/auth";
+import "../pages/ForgotPassword.css";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
@@ -23,14 +23,22 @@ export default function ForgotPassword() {
 
     const formData = new FormData(e.target);
     const email = formData.get("email")
-    mutate(email);
+    mutate(email, {
+      onSuccess: ()=> {
+        e.target.reset()
+      }
+    });
   };
 
   return (
     <form method="post" className="forgot-password-container" onSubmit={handleSubmit}>
       <div className="forgot-password-border">
         <h1>Forgot Password</h1>
-        {data && <p className="forgot-password-resetLink-text">{data?.message}</p>}
+
+        <p className="forgot-password-description">
+          Enter the email address associated with your account and we'll send you a password reset link.
+        </p>
+
         {error && <p>{error.response?.data.message}</p>}
         <Input 
         label="Email"

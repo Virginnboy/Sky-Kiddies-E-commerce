@@ -1,7 +1,7 @@
-import "../auth/Signup.css";
+import "../pages/Signup.css";
 import AuthForm from "../components/AuthForm";
 import { Link, redirect, useActionData, useNavigation } from "react-router-dom";
-import api from "../axios"
+import api from "../api/axios"
 
 const Signup = () => {
   const data = useActionData();
