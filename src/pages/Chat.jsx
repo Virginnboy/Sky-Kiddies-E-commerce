@@ -4,6 +4,7 @@ import Loader from "../components/Loader";
 import "../pages/Message.css";
 import { useNavigate } from "react-router-dom";
 import "../pages/Chat.css";
+import { formattedTime } from "../utils/formattedTime";
 
 const Chat = () => {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ const Chat = () => {
     queryFn: fetchUserChats
   });
 
-  console.log(data?.users.reverse())
+  console.log(data)
 
     if (isLoading) {
     return <Loader/>
@@ -31,25 +32,28 @@ const Chat = () => {
       </header>
 
       <div className="users-list">
-        {data?.users?.map((user) => (
+        {data?.users?.map((data) => (
           <div
-            key={user._id}
+            key={data.user._id}
             className="chat-user"
             onClick={() =>
-              navigate(`/admin-dashboard/message/${user._id}`)
+              navigate(`/admin-dashboard/message/${data.user._id}`)
             }
           >
             <div className="chat-avatar">
-              {user.firstName.charAt(0).toUpperCase()}
+              {data.user.firstName.charAt(0).toUpperCase()}
             </div>
 
             <div className="chat-info">
-              <h3>{user.firstName}</h3>
-              <small>Tap to open conversation</small>
+              <h3>{data.user.firstName}</h3>
+              <small>{data.lastMessage}</small>
             </div>
 
             <div className="chat-arrow">
-              →
+              {formattedTime(data.lastTime)}
+              <div className="chat-unread">
+                {data.unreadCount > 0 && <small>{data.unreadCount}</small>}
+              </div>
             </div>
           </div>
         ))}
