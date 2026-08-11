@@ -1,4 +1,4 @@
-import "../components/Header.css";
+import "../components/Navbar.css";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";

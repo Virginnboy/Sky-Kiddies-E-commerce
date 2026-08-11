@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import Login from "./pages/Login";
 import RootLayout from "./components/RootLayout";
 import Signup, { action as signUpAction } from "./pages/Signup";
@@ -22,6 +21,7 @@ import EditBankDetails, {loader as editBankLoader} from "./pages/EditBankDetails
 import OrderDetails from "./pages/OrderDetails";
 import Chat from "./pages/Chat";
 import Message from "./pages/Message";
+import OverView from "./components/OverView";
 
 
   const router = createBrowserRouter([
@@ -38,7 +38,8 @@ import Message from "./pages/Message";
       {path: "admin-dashboard", element: <ProtectedRoute>
         <AdminDashboardLayout/>
       </ProtectedRoute>, children: [
-          {index: true, element: <Products/>, loader: productsLoader},
+          // {index: true, element: <Products/>, loader: productsLoader},
+          {index: true, element: <OverView/>},
           {path: "products", element: <Products/>, loader: productsLoader},
           {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
           {path: "add-product", element: <AddProducts/>},
@@ -55,7 +56,6 @@ import Message from "./pages/Message";
 ])
 
 function App() {
-console.log("App useQuery");
 
   return (
     <>

@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom"
-import Header from "./Header"
+import Navbar from "../components/Navbar";
 import { useState } from "react"
 
 export default function RootLayout() {
   const [ isOpen, setIsOpen ] = useState(false)
   return (
     <>
-      <Header 
+      <Navbar 
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />

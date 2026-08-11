@@ -1,0 +1,192 @@
+.admin-hero {
+  padding: 30px 20px;
+  background: #f6f7fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-section {
+  width: 100%;
+  max-width: 1050px;
+  background: white;
+  padding: 55px 30px;
+  margin-bottom: 35px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.header-section h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #1f2937;
+}
+
+.header-section h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.manage-section {
+  width: 100%;
+  max-width: 1050px;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.manage-section h4 {
+  margin: 0 0 25px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+
+.manage-section-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.manage-items {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  padding: 25px 15px;
+
+  text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.manage-items:hover {
+  transform: translateY(-5px);
+
+  border-color: #d1d5db;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.manage-items p {
+  margin: 0 0 12px;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.manage-items small {
+  display: block;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: #111827;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.admin-hero > p {
+  margin-top: 30px;
+}
+
+.admin-hero > p a {
+  display: inline-block;
+  padding: 13px 28px;
+  background: #111827;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-hero > p a:hover {
+  background: #374151;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+  .manage-section-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-section h1 {
+    font-size: 34px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+  .header-section {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+  }
+
+  .header-section h1 {
+    font-size: 28px;
+  }
+
+  .header-section h3 {
+    font-size: 15px;
+  }
+
+  .manage-section {
+    padding: 25px 15px;
+  }
+
+  .manage-section h4 {
+    font-size: 20px;
+  }
+
+  .manage-section-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .manage-items {
+    padding: 20px 10px;
+  }
+
+  .manage-items p {
+    font-size: 14px;
+  }
+
+  .manage-items small {
+    font-size: 22px;
+  }
+
+}

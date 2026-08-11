@@ -11,7 +11,8 @@ export const tokenIsExpired = (token)=> {
 
     const currentTime = Date.now() / 1000
 
-    return decoded.exp < currentTime;
+    const expiredToken = decoded.exp < currentTime;
+    return expiredToken;
   } catch (err) {
     return true
   }

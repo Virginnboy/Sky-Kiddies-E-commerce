@@ -60,7 +60,10 @@ useEffect(()=> {
           <main className="ord-pro-bank">
             <div className="sidebar-products">
               <button 
-                onClick={()=> navigate("/admin-dashboard/orders")}
+                onClick={()=> {
+                  navigate("/admin-dashboard/orders")
+                  // setIsOpen(false);
+                }}
                 className={location.pathname === "/admin-dashboard/orders" ? "btn-active" : ""}><FaShoppingCart size={20}/> {isOpen && <span style={{marginLeft: "5px"}}>Orders</span>}</button>
             </div>
 

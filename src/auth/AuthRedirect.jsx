@@ -1,4 +1,4 @@
-import HomePage from "../components/Home";
+import HomePage from "../pages/HomePage";
 import { useQuery } from "@tanstack/react-query";
 import { Navigate } from "react-router-dom";
 import { checkAuth } from "../auth/auth";
@@ -13,7 +13,7 @@ const { data, isLoading } = useQuery({
 
   console.log(data)
 
-  if (isLoading) return <Spinner/>;
+  if (isLoading) return <HomePage/>;
 
   if (data?.user && data?.authenticated) {
     return <Navigate to="/admin-dashboard" replace />
