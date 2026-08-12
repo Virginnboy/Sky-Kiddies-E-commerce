@@ -7,15 +7,13 @@ const api = axios.create({
   withCredentials: true
 });
 
-api.interceptors.request.use((config)=> {
-  const token = localStorage.getItem("adminToken");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
+api.interceptors.response.use((response)=> response, (error)=> {
+  console.log(error);
+  if (error.response && error.response.status === 401) {
+    localStorage.removeItem("adminData");
   }
 
-  return config;
+  return Promise.reject(error);
 });
-
-
 
 export default api;
