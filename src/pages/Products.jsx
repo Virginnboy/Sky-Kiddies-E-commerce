@@ -1,16 +1,23 @@
 import api from "../api/axios";
 import ProductList from "./ProductList";
-import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import "../pages/Products.css";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProducts } from "../services/services";
 import Loader from "../components/Loader";
+import { useFetchProducts } from "../hooks/useFetchProducts";
 
 const Products = () => {
   const navigate = useNavigate();
-  const navigation = useNavigation();
-  const data = useLoaderData();
 
-  if (navigation.state === "loading") {
+  const {data, isLoading, isError, error } = useFetchProducts();
+
+  if (isLoading) {
     return <Loader/>
+  }
+
+  if (isError) {
+    return <p>{error?.response?.data?.message}</p>
   }
   
   return (
@@ -28,13 +35,3 @@ const Products = () => {
 }
 
 export default Products;
-
-export const loader = async ()=> {
-  try {
-    const response = await api.get("/admin/products");
-
-    return response.data
-  } catch (err) {
-    throw err
-  }
-};

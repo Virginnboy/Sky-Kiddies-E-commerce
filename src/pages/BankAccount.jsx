@@ -5,13 +5,19 @@ import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 
 const BankAccount = () => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["bankAccount"],
     queryFn: fetchBankDetails
   });
 
   if (isLoading) {
     return <Loader/>
+  }
+
+  if (isError) {
+    return <p>
+      {error.response?.data?.message}
+    </p>
   }
 
   return (

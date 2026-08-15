@@ -1,5 +1,10 @@
 import api from "../api/axios";
 
+export const fetchProducts = async () => {
+  const response = await api.get("/admin/products");
+  return response.data;
+}
+
 export const editProductMutation = async ({id, formData}) => {
   const response = await api.patch(`/admin/edit-product/${id}`, formData);
   return response.data;
@@ -59,3 +64,8 @@ export const getSenderData = async (senderId)=> {
   const response = await api.get(`/admin/sender_data/${senderId}`);
   return response.data;
 };
+
+export const getOverViewStats = async () => {
+  const response = await api.get("/admin/overview");
+  return response.data;
+}

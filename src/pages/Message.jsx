@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchUserMessages, getSenderData } from "../services/services";
 import Loader from "../components/Loader";
 import { useState, useRef, useEffect } from "react";
-import { socket } from "../../socket.io"
+import { socket } from "../../socket.io";
 import "../pages/Message.css";
 
 export default function Message() {

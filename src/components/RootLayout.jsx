@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import { useState } from "react"
 
 export default function RootLayout() {
-  const [ isOpen, setIsOpen ] = useState(false)
+  const [ isOpen, setIsOpen ] = useState(window.innerWidth >= 767);
+  
   return (
     <>
       <Navbar 

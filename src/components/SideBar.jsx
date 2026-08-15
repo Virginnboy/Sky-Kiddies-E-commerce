@@ -10,7 +10,11 @@ const Sidebar = ({isOpen, setIsOpen}) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
 
-  const sidebarRef = useRef(null)
+  const sidebarRef = useRef(null);
+
+  const sideBarCloseOnMobile = () => {
+    return window.innerWidth >= 767;
+  }
 
 
 const handleLogout = async () => {
@@ -62,26 +66,35 @@ useEffect(()=> {
               <button 
                 onClick={()=> {
                   navigate("/admin-dashboard/orders")
-                  // setIsOpen(false);
+                  setIsOpen(sideBarCloseOnMobile)
                 }}
                 className={location.pathname === "/admin-dashboard/orders" ? "btn-active" : ""}><FaShoppingCart size={20}/> {isOpen && <span style={{marginLeft: "5px"}}>Orders</span>}</button>
             </div>
 
             <div className="sidebar-products">
               <button 
-              onClick={()=> navigate("/admin-dashboard/products")}
+              onClick={()=> {
+                navigate("/admin-dashboard/products")
+                setIsOpen(sideBarCloseOnMobile)
+              }}
               className={location.pathname === "/admin-dashboard/products" ? "btn-active" : ""}><FaBox size={20}/>{isOpen && <span style={{marginLeft: "8px"}}>Products</span>}</button>
             </div>
 
             <div className="sidebar-products">
               <button 
-              onClick={()=> navigate("/admin-dashboard/bank-account")}
+              onClick={()=> {
+                navigate("/admin-dashboard/bank-account")
+                setIsOpen(sideBarCloseOnMobile)
+              }}
               className={location.pathname === "/admin-dashboard/bank-account" ? "btn-active" : ""}><FaUniversity size={20}/>{isOpen && <span style={{marginLeft: "8px"}}>Bank-Details</span>}</button>
             </div>
 
             <div className="sidebar-products">
               <button 
-              onClick={()=> navigate("/admin-dashboard/chats")}
+              onClick={()=> {
+                navigate("/admin-dashboard/chats")
+                setIsOpen(sideBarCloseOnMobile)
+              }}
               className={location.pathname === "/admin-dashboard/chats" ? "btn-active" : ""}><FaComments size={20}/>{isOpen && <span style={{marginLeft: "8px"}}>Chats</span>}</button>
             </div>
           </main>

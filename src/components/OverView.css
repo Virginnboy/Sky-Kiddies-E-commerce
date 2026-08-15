@@ -70,20 +70,24 @@
   font-weight: 600;
 }
 
-.overview-stats small {
-  font-size: 28px;
-  font-weight: 700;
+.info-length {
+  text-align: center;
 }
 
+.info-length span {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  padding: 2px 10px;
+  border-radius: 100%;
+}
 
 .overview-section {
   background: white;
-
   padding: 25px;
   margin-bottom: 25px;
-
   border-radius: 12px;
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 

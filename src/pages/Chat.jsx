@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query"
-import { fetchUserChats } from "../services/services";
+import { useAdminChats } from "../hooks/useAdminChats";
 import Loader from "../components/Loader";
 import "../pages/Message.css";
 import { useNavigate } from "react-router-dom";
@@ -8,15 +7,11 @@ import { formattedTime } from "../utils/formattedTime";
 
 const Chat = () => {
   const navigate = useNavigate()
-
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["adminChats"],
-    queryFn: fetchUserChats
-  });
+  const {data, isLoading, isError, error } = useAdminChats();
 
   console.log(data)
 
-    if (isLoading) {
+  if (isLoading) {
     return <Loader/>
   }
   

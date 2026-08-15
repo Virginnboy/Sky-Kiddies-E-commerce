@@ -12,7 +12,7 @@ const { data, isLoading } = useQuery({
   retry: false,
 });
 
-console.log(data)
+console.log(data);
 
 const auth = data?.authenticated; 
 

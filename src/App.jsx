@@ -4,7 +4,7 @@ import RootLayout from "./components/RootLayout";
 import Signup, { action as signUpAction } from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ErrorPage from "./pages/ErrorPage";
-import Products, {loader as productsLoader }  from "./pages/Products";
+import Products from "./pages/Products";
 import AdminDashboardLayout from "./components/AdminDashboardLayout";
 import Orders from "./pages/Orders";
 import AddProducts from "./pages/AddProducts";
@@ -38,9 +38,8 @@ import OverView from "./components/OverView";
       {path: "admin-dashboard", element: <ProtectedRoute>
         <AdminDashboardLayout/>
       </ProtectedRoute>, children: [
-          // {index: true, element: <Products/>, loader: productsLoader},
           {index: true, element: <OverView/>},
-          {path: "products", element: <Products/>, loader: productsLoader},
+          {path: "products", element: <Products/>},
           {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
           {path: "add-product", element: <AddProducts/>},
           {path: "edit-product/:productId", element: <EditProduct/>, loader: editingProduct},

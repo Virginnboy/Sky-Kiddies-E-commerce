@@ -1,27 +1,27 @@
-import { useQuery } from "@tanstack/react-query"
-import { fetchOrders } from "../services/services"
 import { formattedCurrency } from "../utils/formattedCurrency";
 import { formattedDate } from "../utils/formattedDate";
 import { Link } from "react-router-dom";
 import "../pages/Orders.css";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
+import { useFetchOrders } from "../hooks/useFetchOrder";
 
 const Orders = () => {
   const navigate = useNavigate();
 
-  const {data, isLoading} = useQuery({
-    queryKey: ["order"],
-    queryFn: fetchOrders
-  });
-console.log(data)
+  const {data, isLoading, isError, error} = useFetchOrders();
+
   const orders = data?.order || [];
-  // console.log(orders)
+  console.log(orders)
 
   if (isLoading) {
     return (
       <Loader/>
     )
+  }
+
+  if (isError) {
+    return <p>{error.response?.data?.message || "Failed fetching orders"}</p>
   }
 
   if (orders.length === 0) {
