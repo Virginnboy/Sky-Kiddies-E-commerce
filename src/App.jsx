@@ -40,7 +40,7 @@ import OverView from "./components/OverView";
       </ProtectedRoute>, children: [
           {index: true, element: <OverView/>},
           {path: "products", element: <Products/>},
-          {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction},
+          {path: "products/:productId", element: <ProductDetails/>, loader: productDetailsLoader, action: deleteProductAction, errorElement: <ErrorPage/>},
           {path: "add-product", element: <AddProducts/>},
           {path: "edit-product/:productId", element: <EditProduct/>, loader: editingProduct},
           {path: "orders", element: <Orders/>},

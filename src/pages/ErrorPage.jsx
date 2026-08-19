@@ -13,17 +13,17 @@ const ErrorPage = () => {
 
   if (error?.status === 401) {
     title = "Authentication error";
-    message = error?.data?.message  || "Unauthorized";
+    message = error?.response?.data?.message  || "Unauthorized";
   }
   
   if (error?.status === 404) {
     title = "Not found!"
-    message = "Could not found resource or page"
+    message =error?.response?.data?.message || "Could not found resource or page"
   }
 
   if (error?.status === 500) {
     title = "Server Error"
-    message= error?.data?.message || "Internal Server Error";
+    message= error?.response?.data?.message || "Internal Server Error";
   }
 
 

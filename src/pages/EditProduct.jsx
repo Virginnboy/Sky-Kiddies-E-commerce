@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../pages/EditProduct.css"
 import { useLoaderData } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { editProductMutation } from "../services/services";
+import { editProductMutation } from "../services/product.service";
 import { useParams } from "react-router-dom";
 
 const EditProduct = () => {
@@ -57,7 +57,7 @@ export const loader = async({params}) => {
   const id = params.productId
   console.log(id)
   try {
-    const response = await api.get(`/admin/product-details/${id}`, {withCredentials: true});
+    const response = await api.get(`/admin/product/product-details/${id}`, {withCredentials: true});
 
     return response.data;
 

@@ -93,34 +93,31 @@ const ProductDetails = () => {
   )
 }
 
-export default ProductDetails
+export default ProductDetails;
 
 export const loader = async ({params}) => {
   const id = params.productId
   try {
-    const response = await api.get("/admin/product-details/" + id);
+    const response = await api.get(`/admin/product/product-details/${id}`);
 
-    if (!response.data) {
-      throw new Response("Product not found", { status: 404 });
-    }
-    
-    return response.data
+    return response.data;
+
   } catch (err) {
-    console.log(err)
-    throw new Response("Fetching Product failed", {status: 500})
+    console.log(err);
+    throw err;
   }
 };
 
 export const action = async ({params})=> {
   const id = params.productId
-    console.log(id)
+    // console.log(id);
   try { 
-    await api.delete("/admin/delete-product/" + id);
+    await api.delete(`/admin/product/delete-product/${id}`);
     
     return redirect("/admin-dashboard/products")
 
   }catch (err) {
-    console.log(err)
-    throw new Response("Server error", {status: 500})
+    console.log(err);
+    throw err;
   }
 };

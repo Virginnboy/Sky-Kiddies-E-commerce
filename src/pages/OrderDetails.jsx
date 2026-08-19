@@ -1,7 +1,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query"
 import { useParams, useNavigate } from "react-router-dom"
 import Spinner from "../components/Spinner";
-import { confirmOrder, fetchOrderDetails, declineOrder } from "../services/services";
+import { confirmOrder, fetchOrderDetails, declineOrder } from "../services/order.service";
 import "../pages/OrderDetails.css";
 import { formattedCurrency } from "../utils/formattedCurrency";
 import { formattedDate } from "../utils/formattedDate";

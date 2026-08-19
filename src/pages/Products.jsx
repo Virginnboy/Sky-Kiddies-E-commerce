@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 import { useNavigate, useNavigation } from "react-router-dom";
 import "../pages/Products.css";
 import { useQuery } from "@tanstack/react-query";
-import { fetchProducts } from "../services/services";
+import { fetchProducts } from "../services/product.service";
 import Loader from "../components/Loader";
 import { useFetchProducts } from "../hooks/useFetchProducts";
 

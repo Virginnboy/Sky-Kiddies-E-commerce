@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchBankDetails } from "../services/services";
+import { fetchBankDetails } from "../services/bankAccount.service";
 import "../pages/BankAccount.css";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";

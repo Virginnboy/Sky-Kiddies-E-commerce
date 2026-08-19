@@ -3,7 +3,7 @@ import "../pages/EditBankDetails.css";
 import api from "../api/axios";
 import { useLoaderData } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { editAccountDetails } from "../services/services";
+import { editAccountDetails } from "../services/bankAccount.service";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";

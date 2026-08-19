@@ -6,6 +6,7 @@ import Input from "../components/Input";
 import "../pages/Login.css";
 import { loginMutation } from "../auth/auth";
 import toast from "react-hot-toast";
+import { socket } from "../../socket.io";
 
 const Login =()=>{
   const [ showSignupMsg, setShowSignupMsg ] = useState(false)
@@ -31,6 +32,7 @@ const Login =()=>{
         user: data?.user
       });
 
+      socket.connect();
       navigate("/admin-dashboard", {replace: true});
       toast.success(data?.message);
     },

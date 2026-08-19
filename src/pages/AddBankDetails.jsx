@@ -1,7 +1,7 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { addAccount } from "../services/services";
+import { addAccount } from "../services/bankAccount.service";
 import toast from "react-hot-toast";
 import BankInput from "../components/BankInput";
 import "../pages/AddBankDetails.css";
